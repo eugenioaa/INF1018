@@ -1,0 +1,89 @@
+Exer1:
+a) 
+./dump1
+0x7ffeb47b85c4 - 10
+0x7ffeb47b85c5 - 27
+0x7ffeb47b85c6 - 00
+0x7ffeb47b85c7 - 00
+
+- Tam de bytes: 
+    4 linahs foram impresas na terminal entao ele tem 4 bytes.
+- Orden de bytes: 
+    Do menos significativo ao mas significativo.
+    10 27 00 00 -> 00 00 27 10 -> 2710 
+
+b)
+./dump1-long 
+Dump do long:
+0x7ffeef3583e0 - 10
+0x7ffeef3583e1 - 27
+0x7ffeef3583e2 - 00
+0x7ffeef3583e3 - 00
+0x7ffeef3583e4 - 00
+0x7ffeef3583e5 - 00
+0x7ffeef3583e6 - 00
+0x7ffeef3583e7 - 00
+
+Neste caso o long é amarzenado em 64bits a assim tendo espaço para 8 bytes.
+
+c)
+Dump para short:
+0x7fff02691aca - 10
+0x7fff02691acb - 27
+
+Com a mesma logica o short no lugar de 32bits usa a metade 16bits
+
+Ambos b) e c) continuam indo do menos significativo ao maior. Isto depende do cpu e nao do codigo
+
+d)
+./dump1-char
+Dump pra char caracter:
+0x7ffd26266398 - 61
+Dump pra char ASCII:
+0x7ffd26266399 - 61
+
+Para um computador nao a difernecia entre um character e um ASCII.
+E neste caso deu o mesmo numero 61 pois para um computador este sao a mesma coisa.
+
+e)
+./dump1-E
+Dump para numeros genericos:
+0x7ffe1dfa91be - 37
+0x7ffe1dfa91bf - 35
+0x7ffe1dfa91c0 - 30
+0x7ffe1dfa91c1 - 39
+0x7ffe1dfa91c2 - 00
+
+Dump para exercicio e:
+0x7ffe1dfa91c3 - 41
+0x7ffe1dfa91c4 - 20
+0x7ffe1dfa91c5 - 0a
+0x7ffe1dfa91c6 - 24
+0x7ffe1dfa91c7 - 00
+
+No caso de string em little endian sua leitura NAO é invertida.
+entao:
+41 - A
+20 -' '
+0a- \n 
+24 - $ 
+00 - fim da string
+
+Exer2:
+a)Atraves do pontiero a funcao esta convertido a string de numeros em numeros de tipo int.
+
+b)
+./exer2-b
+511
+777
+
+Tive que adicionar uma variavel para a base na funcao e trocar o 10 por esa nova variavel.
+
+c)
+26
+41115
+1633295
+
+Primeiro verificamos se o valor é um digito entre 0 e 9, se nao este usa a conta para descobri o valor nuemro do caracter, tratandolo como hexadecimal.
+
+## Nota: gemini usado para confirmar respostas e tirar duvidas quando fiquei preso em alguma pergunta.
