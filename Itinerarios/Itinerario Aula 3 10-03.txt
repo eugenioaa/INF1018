@@ -1,0 +1,13 @@
+Intinerario Aula 3 – 10-03
+
+n-- : Depois do while 
+-- n: Antes do while 
+
+É dizer que para  o n-- é o ideal já que ele so subtrair depois de todo o codigo dentro da função rodar 
+
+p1 = 10
+*p1 = conteudo de memoria de p1
+p1 = conteudo do ponterio de p1 
+
+
+Não entedi muito bem o tema de p1 e p2[] 
