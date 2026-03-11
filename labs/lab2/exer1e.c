@@ -9,17 +9,15 @@ void dump (void *p, int n){
 }
 
 int main (void){
-    /*
     int i = 10000;
     long l = 10000;
     short s = 10000;
     char a = 'a';
     char n = 97;
-    */
     char p[] = "7509";
     char pE[] = "A \n$";
 
-/*
+
     printf("Dump do int:\n");
     dump (&i, sizeof(i));
 
@@ -34,7 +32,7 @@ int main (void){
 
     printf("Dump para char ASCII:\n");
     dump(&n, sizeof(n));
-*/
+
     printf("Dump para numeros genericos:\n");
     dump(&p, sizeof(p));
 
