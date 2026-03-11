@@ -1,8 +1,0 @@
-Itinerario – AULA 2 05/03
-Revisamos e aprendimos coisa novas da linguagem C. Primeiramente revimos os graficos de memoria que nos ajudam a entender melhor como os nosso dados sao armazenados. Aprendí que há duas maneras de como as informaçoes soa guardas. Sendo o mais importante o little ende. Este funcion em todas as maquinas atuais e ele guarda de menos a mais significativo, e dizer se o meu valor é 00 00 23 10, o computador o lê 10 23 00 00. 
-Revimos a notaçao de binario, decimal e hexadecimal. Como ir de decimal para binario, decimal para hexadecimal e os mais importantes binario para hexadecimal e hexadecimal para binario, que são processos diferentes. 
-Actualemnte a maioria de computadores sao de 64bits e isto afecta o tamanho dos tipos da linguagem C:
-·	Char: 1 byte
-·	Int: 4 bytes
-·	Long: 8 bytes 
-
