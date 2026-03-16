@@ -1,0 +1,20 @@
+Nesta aula, vimos como a linguagem C lida com dados em nível de bits, focando em operações lógicas e de deslocamento. 
+Primeiro, diferenciamos os operadores lógicos dos operadores bit a bit. Aprendi que operadores lógicos como:
+|| (OR),
+&& (AND), 
+! (NOT) 
+
+tratam qualquer valor diferente de zero como verdadeiro e o zero como falso, resultando sempre em 0 ou 1.
+
+Já os operadores bit a bit podem ser aplicados a qualquer tipo inteiro e trabalham diretamente na álgebra booleana de cada 
+bit individualmente:
+
+& (AND): Resulta em 1 apenas quando ambos os bits comparados são 1
+| (OR): Resulta em 1 se pelo menos um dos bits for 1
+~ (NOT): Inverte todos os bits, transformando 0 em 1 e vice-versa
+^ (XOR): Resulta em 1 apenas se os bits forem diferentes entre si
+
+Deslocamento de Bits (Shift), que move a posição dos bits para a esquerda ou direita:
+
+- No deslocamento para a esquerda (<<), os bits que saem são descartados e os novos espaços à direita são preenchidos com zero.
+- No deslocamento para a direita (>>), o comportamento depende do tipo de dado
