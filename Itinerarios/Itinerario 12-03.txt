@@ -1,5 +1,0 @@
-Itinerario Aula 4 – 12/03
-
-Reviimos os operadores logicos || (or), && (and) e ! (not)
-Estos memso operqados podem ser usado em logtica de bits e boolena 
-
