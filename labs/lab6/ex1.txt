@@ -1,0 +1,24 @@
+As correspondecias entre os codigos são:
+1. o int = ... em assembley esta amarzenado em duas linhas 
+.data           é a sessao da memoria dedica para amazenar os dados
+nums: int ...   int indica que ocupa 4 bytes
+
+
+2. en vez de usar variaveis o assembly usa registradoes 
+%ebx no lugar de i e %r12 no lugar de p 
+
+3. a condição do for (i != 4)
+cmpl $4, %ebx   compara o contador com 4
+je L2           se for igual, pula direto para a saída (L2)
+
+4. ler o valor do ponteiro (*p)
+movl (%r12), %eax   pega o valor dentro do endereço r12 e joga no eax
+
+5. o i++ e p++ do for
+addl $1, %ebx   soma 1 no contador i
+addq $4, %r12   soma 4 no ponteiro p (porque int ocupa 4 bytes)
+jmp L1          volta obrigatoriamente para o início do loop
+
+6. o return 0 e fim do programa
+L2:             é a placa de saída do laço
+movq $0, %rax   coloca zero no retorno para encerrar certo
