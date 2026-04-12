@@ -20,14 +20,7 @@ main:
 
 L1:
   cmpb  $0, (%r12)  /* if (*pc == 0) ? */
-
   je  L2          /* goto L2 */
-
-  cmpb  $123, (%r12)
-  je  L3
-  
-  cmpb  $125, (%r12)
-  je  L3
 
   movsbl  (%r12), %eax    /* eax = *r12 (estendendo o byte para 32 bits */
 
@@ -39,11 +32,6 @@ L1:
   call  printf       /* chama a funcao da biblioteca */
 /*************************************************************/
 
-  addq  $1, %r12  /* r12 += 1; */
-  jmp  L1         /* goto L1; */
-
-
-L3:
   addq  $1, %r12  /* r12 += 1; */
   jmp  L1         /* goto L1; */
 
