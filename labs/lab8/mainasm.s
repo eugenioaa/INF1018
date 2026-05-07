@@ -23,7 +23,7 @@ LOOP:
 
     leaq    s1(%rip), %rdi 
     movl    %eax, %esi
-    movb    $0, %al 
+    movb    $0, %al @
     call printf
 
     addq    $4, %r12
