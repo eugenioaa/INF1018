@@ -1,0 +1,2 @@
+Este laboratório serve como a entrada para o sistema operacional e as ferramentas de compilação. Este percurso pretende habituar você ao terminal Linux, ao uso do editor de texto e, em especial, ao processo de compilação com o GCC. Você aprende a decifrar mensagens de erro de compilação e a executar programas simples, certificando-se de que o ambiente esteja configurado para os desafios de programação de baixo nível que se seguirão.
+
