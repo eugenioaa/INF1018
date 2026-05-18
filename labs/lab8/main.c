@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define LIM 1
 
-int filtro(int x, int lim);
+int filtro(int x, int68	17 lim);
 
 int nums[5] = {3,-5,7,8,-2};
 
