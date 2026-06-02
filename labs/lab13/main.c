@@ -1,67 +1,67 @@
 #include <stdio.h>
-
-// meus includes 
 #include <stdint.h>
 #include <sys/mman.h>
 #include <unistd.h>
+#include <string.h>
 
-// minhas constantes
-
-// meus prototipos
+// protótipos
 int bar(int x);
+int add(int x);
 
-// meus tipos 
-typedef int (*funcp) (int x);
-typedef  unsigned int uint32;
+// tipos
+typedef int (*funcp)(int x);
+typedef unsigned int uint32;
+
 unsigned char codigo[] = {
-    0x55,                      // push   %rbp
-    0x48, 0x89, 0xe5,          // mov    %rsp,%rbp
-    0x89, 0xf8,                // mov    %edi,%eax
-    0xff, 0xc0,                // inc    %eax
-    0xc9,                      // leave
-    0xc3                       // ret
+    0xe9, 0x00, 0x00, 0x00, 0x00,  // call   jmp
+
 };
+
 int execpage(void *ptr, size_t len) {
-	int ret;
-
-	const long pagesize = sysconf(_SC_PAGE_SIZE);
-	if (pagesize == -1)
-		return -1;
-
-	ret = mprotect((void *)PAGE_START(ptr),
-		 PAGE_END((intptr_t)ptr + len) - PAGE_START(ptr),
-		 PROT_READ | PROT_WRITE | PROT_EXEC);
-	if (ret == -1)
-		return -1;
-
-	return 0;
+#define PAGE_START(P) ((intptr_t)(P) & ~(pagesize-1))
+#define PAGE_END(P)   (((intptr_t)(P) + pagesize - 1) & ~(pagesize-1))
+    int ret;
+    const long pagesize = sysconf(_SC_PAGE_SIZE);
+    if (pagesize == -1)
+        return -1;
+    ret = mprotect((void *)PAGE_START(ptr),
+        PAGE_END((intptr_t)ptr + len) - PAGE_START(ptr),
+        PROT_READ | PROT_WRITE | PROT_EXEC);
+    if (ret == -1)
+        return -1;
+    return 0;
+#undef PAGE_START
+#undef PAGE_END
 }
 
-
-int bar(int(x)){
-    return x+1;
-}
-
-
-
-int main(){
-    
-    
+int main() {
     int a = 5;
     int b;
-    funcp f;        // f é ponteiro para fuçao 
+    funcp f;
 
-    b = bar(a);     // bar é o endereço da 
+    execpage(codigo, sizeof(codigo));
+
+    int32_t offset = (int32_t)((intptr_t)add - (intptr_t)(codigo + 5));
+    memcpy(&codigo[1], &offset, 4);
+
+    b = bar(a);
     printf("bar(%d) = %d\n", a, b);
 
-    f = bar;        // f aponta para a funcao bar
+    f = bar;
     b = f(a);
     printf("f(%d) = %d\n", a, b);
 
-    f = (funcp)codigo;      // Isto muda nada do codigo 
+    f = (funcp)codigo;
     b = f(a);
     printf("f(%d) = %d\n", a, b);
-
 
     return 0;
+}
+
+int bar(int x) {
+    return x + 1;
+}
+
+int add(int x) {
+    return x + 1;
 }
